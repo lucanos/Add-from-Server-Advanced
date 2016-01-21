@@ -291,7 +291,7 @@ class Add_From_Server {
 			// Ok, Its in the uploads folder, But NOT in WordPress's media library.
 			if ( 'file' == $import_date ) {
 				$time = @filemtime( $file );
-				if ( preg_match( "|(\d+)/(\d+)|", $mat[1], $datemat ) ) { // So lets set the date of the import to the date folder its in, IF its in a date folder.
+				if ( preg_match( '|(\d+)/(\d+)|', $mat[1], $datemat ) ) { // So lets set the date of the import to the date folder its in, IF its in a date folder.
 					$hour = $min = $sec = 0;
 					$day = 1;
 					$year = $datemat[1];

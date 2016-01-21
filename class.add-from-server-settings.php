@@ -8,11 +8,12 @@ class Add_From_Server_Settings {
 	}
 
 	function render() {
-		echo '<div class="wrap">';
-		screen_icon( 'options-general' );
-		echo '<h1>' . __( 'Add From Server', 'add-from-server' ) . '</h1>';
-		echo '<form method="post" action="options.php">';
-
+?>
+  <div class="wrap">
+    <?php screen_icon( 'options-general' ); ?>
+		<h1><?php _e( 'Add From Server', 'add-from-server' ); ?></h1>
+		<form method="post" action="options.php">
+    <?php
 		settings_fields( 'add_from_server' );
 
 		$uac = get_option( 'frmsvr_uac', 'allusers' );
@@ -62,7 +63,7 @@ class Add_From_Server_Settings {
 						<textarea rows="5" cols="20" name="frmsvr_uac_users"
 								  class="large-text code"><?php echo esc_textarea( get_option( 'frmsvr_uac_users', 'admin' ) ); ?></textarea>
 						<br/>
-						<small><em><?php _e( "List the user login's one per line", 'add-from-server' ); ?></em></small>
+						<small><em><?php _e( 'List the user logins one per line', 'add-from-server' ); ?></em></small>
 					</fieldset>
 				</td>
 			</tr>
@@ -109,10 +110,10 @@ class Add_From_Server_Settings {
 				jQuery('#frmsvr_root-specify').attr('checked', 'checked');
 			});
 		</script>
-		<?php
-		submit_button( __( 'Save Changes', 'add-from-server' ), 'primary', 'submit' );
-		echo '</form>';
-		$this->main->language_notice( ( get_locale() !== 'en_US' ) );
-		echo '</div>';
+		<?php submit_button( __( 'Save Changes', 'add-from-server' ), 'primary', 'submit' ); ?>
+		</form>
+    <?php $this->main->language_notice( ( get_locale() !== 'en_US' ) ); ?>
+		</div>
+    <?php
 	}
 }
